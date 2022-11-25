@@ -1,14 +1,20 @@
 body {
     background-color: rgb(0, 102, 152);
 }
-.inpt {
+.form-register {
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 83%;
     height: 35px;
     margin-left: 9%;
+    margin-top: 5%;
+    border-radius: 5px;
+    border: 2px solid rgba(99, 99, 99, 0.2) ;
+    font-family: arial rounded mt;
+    padding-left: 8px;
+    font-size: 14px;
 }
 .cntner {
     height: 100%;
@@ -29,16 +35,18 @@ body {
     height: 80px;
     border-radius: 15px 15px 0 0;
 }
-h3 {
+.join {
     text-align: center;
     font-size: 25px;
+    font-family: arial rounded mt;
+    margin-top: 20px;
 }
 .role-input {
     display: flex;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 83%;
     height: 40px;
     margin-left: 9%;
     margin-top: 25px;
@@ -47,14 +55,25 @@ h3 {
     font-family: arial rounded mt;
     color: rgb(119, 119, 119);
     padding-left: 6px;
+    font-size: 14px;
 }
-.bttn {
+.start-register {
     width: 83%;
     height: 40px;
     margin-left: 9%;
+    margin-top: 10%;
     background-color: rgb(0, 146, 230);
+    font-family: arial rounded mt;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
-p {
+.start-register:hover {
+    background-color: rgb(0, 134, 211);
+}
+.footer {
     text-align: center;
     margin-top: 100px;
     font-family: arial rounded mt;

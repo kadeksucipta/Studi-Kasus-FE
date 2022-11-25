@@ -20,20 +20,20 @@ const Register = () => {
                     className="image"
                     />{" "}  
                     </div>
-                    <h3>Let's Join !</h3>
+                    <h3 className="join">Let's Join !</h3>
                 <form action="">
-                    <input className="inpt" type="text" placeholder="Full Name"/>
-                    <input className="inpt" type="text" placeholder="Email"/>
-                    <input className="inpt" type="password" placeholder="Password"/>
+                    <input className="form-register" type="text" placeholder="Full Name"/>
+                    <input className="form-register" type="text" placeholder="Email"/>
+                    <input className="form-register" type="password" placeholder="Password"/>
                     <select className="role-input" name="" id="role" placeholder="select">
                         <option disabled hidden selected>select role</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>
                     </select>
                 </form>
-                    <button className="bttn">Let's Started</button>
+                    <button className="start-register">Let's Started</button>
 
-                    <p>Copyright&copy; 2022 SuciptCreativeTeam all right reseverb</p>
+                    <p className="footer">Copyright&copy; 2022 SuciptaCreativeTeam all right reseverb</p>
                 </div>
             </div>
             

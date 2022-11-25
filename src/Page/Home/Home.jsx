@@ -1,84 +1,117 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Pagination from 'react-bootstrap/Pagination';
 import "./styleHome.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"; 
-import { faTags } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTag } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Dropdown from 'react-bootstrap/Dropdown';
 import pizza from "./pizza.jpg"
-import roti from "./roti.jpeg"
-import geprek from "./geprek.jpg"
-import burger from "./burger.png"
-import boba from "./boba.jpg"
 
-const Login = () => {
+const Home = () => {
+
+    const [Homeapi, setHomeapi] = useState([])
+
+    useEffect(() => {
+        fetchHomeapi()
+    }, [])
+
+    const fetchHomeapi = (FormData) => {
+        fetch(`http://localhost:3002/api/products`)
+        .then(res => res.json())
+        .then(data => {
+            setHomeapi(data)
+            console.log(data)
+        })
+    };
+
+    // const data = 
+    // [
+    //     {
+    //         name: "Pizza",
+    //         price: 20000,
+    //         category: "Makanan",
+    //         tags: "Gurih",
+    //         image_url: "ed5688c45b5b72ab0c35463ecd4f1c1c.jpg"
+    //     },
+    //     {
+    //         name: "Roti",
+    //         price: 5000,
+    //         category: "Makanan",
+    //         tags: "Manis"
+    //     },
+    // ]
 
     return(
         <React.Fragment>
-            {/* <input className="search" type="text" />
-            <nav>
-                <input type="checkbox" id="check" />
-                <label htmlFor="check" className="checkbtn">
-                    <i><FontAwesomeIcon icon={faBars}/></i>
-                </label>
-                
-                <label className="logo">MyMart</label>
-                <ul>
-                    <li><FontAwesomeIcon icon={faCartShopping}/></li>
-                    <li><FontAwesomeIcon icon={faUser}/></li>
-                    <li><a className="active" href="">Keranjang</a></li>
-                </ul>
-            </nav> */}
+            <nav className="navbar-home">
+                <form className="form-input">
+                    <h4 className="mart">MyMART</h4>
+                    <Dropdown className="dropdown">
+                        <Dropdown.Toggle variant="light" className="dropdown-toggle" id="dropdown-basic">Category</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Menu Utama</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Makanan</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Minuman</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                    <input className="search-product" type="text" placeholder="Cari..."/>
+                    <button className="button-search" type="button" value="Cari"><FontAwesomeIcon icon={faSearch}/></button>
+                    <FontAwesomeIcon icon={faCartShopping}/>
+                    <FontAwesomeIcon icon={faUser}/>
+                </form>
+            </nav>
 
-            <div className="navbar">
-                <input className="search" type="text" placeholder="Cari barang..."/>
-                <h4>MyMart</h4>
-                <li><FontAwesomeIcon icon={faCartShopping}/></li>
-                
-            </div>
+            <h5 className="tags" >Tags :</h5>  
+
+            {Homeapi.map(item => (
+             <button className="button-tags"><FontAwesomeIcon icon={faTag}/>{item.tags}</button>
+            ))}
+            
+            
+            {/*---------------------------------------------------------------*/}
+
+            
+                <div style={{display: "flex"}} className="card">
+                {Homeapi.map(item => (
+                <Card  className="card-item">
+                <Card.Body className="menu-item">
+                    <Card.Img className="img-item" variant="top" src={item.image_url}/>
+                    <Card.Title className="title-item">{item.name}</Card.Title>
+                    <Card.Text className="text-item">{item.price}</Card.Text>
+                    <Button className="tag-item"><FontAwesomeIcon icon={faTag}/>{item.tags}</Button>
+                    <Button className="btn-item"><FontAwesomeIcon icon={faCartPlus}/></Button>
+                </Card.Body>
+                </Card>
+                ))}
+                </div>
 
             {/*---------------------------------------------------------------*/}
 
-            <Card className="menu">
-            <Card.Body className="menu-pizza">
-                <Card.Title className="title-pizza">Pizza</Card.Title>
-                <Card.Img className="img-pizza" variant="top" src={pizza} />
-                <Card.Text className="text-pizza">Menu Utama</Card.Text>
-                <Button className="tag-pizza">Roti</Button>
-                <Button className="btn-pizza"><FontAwesomeIcon icon={faCartPlus}/></Button>
-            </Card.Body>
+            <Pagination className="pagination">
+                <Pagination.First className="page1" />
+                <Pagination.Prev className="page2" />
+                <Pagination.Item className="page3">{1}</Pagination.Item>
+                <Pagination.Ellipsis />
 
-            <Card.Body className="menu-roti">
-                <Card.Title className="title-roti">Roti</Card.Title>
-                <Card.Img className="img-roti" variant="top" src={roti}/>
-                <Card.Text className="text-roti">Menu Utama</Card.Text>
-                <Button className="tag-roti">Roti</Button>
-                <Button className="btn-roti"><FontAwesomeIcon icon={faCartPlus}/></Button>
-            </Card.Body>
+                <Pagination.Item className="page4">{10}</Pagination.Item>
+                <Pagination.Item className="page5">{11}</Pagination.Item>
+                <Pagination.Item className="page6" active>{12}</Pagination.Item>
+                <Pagination.Item className="page7">{13}</Pagination.Item>
+                <Pagination.Item className="page8" disabled>{14}</Pagination.Item>
 
-            <Card.Body className="menu-ayam">
-                <Card.Title className="title-ayam">Ayam Geprek</Card.Title>
-                <Card.Img className="img-ayam" variant="top" src={geprek}/>
-                <Card.Text className="text-ayam">Menu Utama</Card.Text>
-                <Button className="tag-ayam">Pedas</Button>
-                <Button className="btn-ayam"><FontAwesomeIcon icon={faCartPlus}/></Button>
-            </Card.Body>
-
-            <Card.Body className="menu-burger">
-                <Card.Title className="title-burger">Burger Crispy</Card.Title>
-                <Card.Img className="img-burger" variant="top" src={burger}/>
-                <Card.Text className="text-burger">Menu Utama</Card.Text>
-                <Button className="tag-burger">Asin</Button>
-                <Button className="btn-burger"><FontAwesomeIcon icon={faCartPlus}/></Button>
-            </Card.Body>
-            </Card>
-
-            {/*---------------------------------------------------------------*/}
+                <Pagination.Ellipsis className="page9" />
+                <Pagination.Item className="page10">{20}</Pagination.Item>
+                <Pagination.Next className="page11"/>
+                <Pagination.Last className="page12"/>
+            </Pagination>
 
         </React.Fragment>
     )
 }
 
-export default Login
+export default Home

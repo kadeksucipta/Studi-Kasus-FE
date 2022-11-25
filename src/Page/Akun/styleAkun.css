@@ -5,7 +5,7 @@
     list-style: none;
     box-sizing: border-box;
 }
-.navbar-home {
+.navbar-akun {
     background-color: white;
     width: 100%;
     height: 50px;
@@ -32,7 +32,6 @@
     border-radius: 6px;
     border: none;
 }
-
 .button-search {
     position: relative;
     background-color: rgb(6, 192, 0);
@@ -107,61 +106,94 @@
     margin-left: 8px;
     margin-right: 3px;
 }
-/*--------------------------------------------*/
-.card {
-    display: flex;
-    margin-top: 1%;
-    margin-left: 3%;
-}
-.card-item {
-    width: 300px;
+/*--------------------------------------*/
+/* .container-akun {
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
-.menu-item {
-    margin-top: 5%;
+.box-akun {
+    height: 500px;
+    width: 80%;
     background-color: white;
-    border-radius: 8px;
-    border: 2px solid white;
+    border-radius: 10px;
 }
-.btn-item {
-    margin-left: 5%;
-    width: 50px;
-    height: 40px;
-    background-color: rgb(6, 192, 0);
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-}
-.tag-item {
-    margin-left: 5%;
-    width: 65px;
-    height: 40px;
-    background-color: rgb(6, 192, 0);
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-family: arial rounded mt;
-    margin-bottom: 5%;
-    cursor: pointer;
-}
-.fa-cart-plus {
-    font-size: 18px;
-}
-.title-item {
-    margin-left: 5%;
-}
-.text-item {
-    margin-top: 10px;
-    text-align: left;
-    margin-left: 5%;
-    margin-bottom: 5%;
-}
-.img-item {
+.nav-akun {
+    background-color: rgb(0, 140, 255);
     width: 100%;
-    border-radius: 8px 8px 0 0;
-    /* height: 200px;
-    top: 245px;
-    left: 232px;
-    border-radius: 5px; */
+    height: 70px;
+    border-radius: 10px 10px 0 0;
+}
+.box-detail-akun {
+    height: 400px;
+    width: 20%;
+    background-color: rgb(149, 2, 2);
+    border: 1px solid rgb(197, 197, 197); ssss
+    margin: 15px 15px;
+}
+.table-akun {
+    display: flex;
+    margin: 15px 15px;
+    padding-right: 20%;
+}
+.table-menu-akun{
+    width:  50%;
+    cursor: pointer;
+    border-width: 2px;
+}
+.table-detail {
+    margin-left: 10px;
+}
+.span-akun {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+} */
+
+/*-------------------------------*/
+.container-akun {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.box-akun {
+    height: 150px;
+    width: 40%;
+    background-color: white;
+    border-radius: 10px;
+}
+.nav-akun {
+    background-color: rgb(0, 140, 255);
+    width: 100%;
+    height: 70px;
+    border-radius: 10px 10px 0 0;
+}
+.span-akun {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+.button-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 15px;
+}
+.btn-profil, .btn-pesan, .btn-alamat, .btn-logout {
+    margin-left: 10px;
+    padding: 10px 10px;
+    background-color: rgb(6, 192, 0);
+    color: white;
+    border: none;
+    border-radius: 8px;
 }
